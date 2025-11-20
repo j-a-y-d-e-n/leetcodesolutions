@@ -1,0 +1,8 @@
+class Solution {
+public:
+    int fib(int n) {
+        if (n == 0) return 0; // base case 0
+        if (n == 1) return 1; // base case 1 
+        return fib(n-1) + fib(n-2); // recursive call to get to base cases that can use the return values for addition
+    }
+};
