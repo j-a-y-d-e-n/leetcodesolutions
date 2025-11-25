@@ -1,13 +1,13 @@
 class MyCircularQueue {
 public:
-    MyCircularQueue(int k) {
+    MyCircularQueue(int k) { // intialize our variables
         cap = k;
         head = tail = count = 0;
         data = new int[k];
     }
     
     bool enQueue(int value) {
-        if (isFull()) return false;
+        if (isFull()) return false; // if its full cannot add to queue
         data[tail] = value;
         tail += 1;
         tail = tail % cap; // loop back to use free slots
@@ -16,7 +16,7 @@ public:
     }
     
     bool deQueue() {
-        if (isEmpty()) return false;
+        if (isEmpty()) return false; //  if its empty cannot remove
         head += 1;
         head = head % cap;
         count -= 1;
@@ -36,12 +36,12 @@ public:
     }
     
     bool isEmpty() {
-        if (count == 0) return true;
+        if (count == 0) return true; // if the count is 0 then its empty
         else return false;
     }
     
     bool isFull() {
-        if (count == cap) return true;
+        if (count == cap) return true; // if the count is == to the cap then we are full
         else return false;
     }
 private:
