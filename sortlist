@@ -1,1 +1,17 @@
-
+class Solution {
+    public:
+        ListNode* sortList(ListNode* head) {
+            for (ListNode* i = head; i != nullptr; i = i->next){ // walk the list one position at a time
+                ListNode* minnode = i;                          // assume current node holds smallest value
+                for (ListNode* j = i->next; j!= nullptr; j = j->next){ // scan remaining nodes
+                    if (j->val < minnode->val){                 // found a smaller value later in list
+                        minnode = j;                            // remember where that smallest value lives
+                    }
+                }
+                int temp = i->val;                              // swap values so position i holds the smallest
+                i->val = minnode->val;
+                minnode->val = temp;
+            }
+            return head;
+        }
+    };
